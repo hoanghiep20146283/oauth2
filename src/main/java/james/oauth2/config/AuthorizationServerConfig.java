@@ -82,9 +82,9 @@ public class AuthorizationServerConfig {
     @Bean
     public UserDetailsService userDetailsService() {
         UserDetails userDetails = User.withDefaultPasswordEncoder()
-                .username("user")
-                .password("password")
-                .roles("USER")
+                .username("admin")
+                .password("MBAL@2022")
+                .roles("ADMIN")
                 .build();
 
         return new InMemoryUserDetailsManager(userDetails);

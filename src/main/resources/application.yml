@@ -3,10 +3,10 @@ spring:
     oauth2:
       authorizationserver:
         client:
-          oidc-client:
+          client-application:
             registration:
               post-logout-redirect-uris: http://127.0.0.1:8089/
-              redirect-uris: http://127.0.0.1:8080/login/oauth2/code/oidc-client
+              redirect-uris: http://127.0.0.1:9000/login/oauth2/code/oidc-client
               authorization-grant-types: authorization_code, refresh_token
               client-authentication-methods: client_secret_basic
               client-id: oidc-client
