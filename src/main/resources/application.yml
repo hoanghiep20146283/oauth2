@@ -1,0 +1,29 @@
+spring:
+  security:
+    oauth2:
+      authorizationserver:
+        client:
+          oidc-client:
+            registration:
+              post-logout-redirect-uris: http://127.0.0.1:8089/
+              redirect-uris: http://127.0.0.1:8080/login/oauth2/code/oidc-client
+              authorization-grant-types: authorization_code, refresh_token
+              client-authentication-methods: client_secret_basic
+              client-id: oidc-client
+              client-secret: '{noop}secret'
+              scopes: openid, profile
+            require-authorization-consent: true
+
+  r2dbc:
+    password: thaovtt1234
+    url: r2dbc:mysql://localhost:3306/oauth2
+    username: root
+
+logging:
+  level:
+    org:
+      springframework:
+        security: trace
+
+server:
+  port: 9000
