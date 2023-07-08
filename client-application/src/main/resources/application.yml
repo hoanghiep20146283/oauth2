@@ -14,14 +14,22 @@ spring:
     oauth2:
       client:
         registration:
-          client-application:
+          login-client:
             client-id: oidc-client
-            client-secret: '{noop}secret'
+            client-secret: 'client-secret'
             provider: spring
             authorization-grant-type: authorization_code
-            redirect-uri: "http://127.0.0.1:8089/login/oauth2/code/{registrationId}"
+            redirect-uri: "http://127.0.0.1:8089/oauth2/login/code/{registrationId}"
             scope: openid
-            client-name: api-client-oidc
+            client-name: login-client
+          authorized-client:
+            client-id: oidc-client
+            client-secret: 'client-secret'
+            provider: spring
+            authorization-grant-type: authorization_code
+            redirect-uri: "http://127.0.0.1:8089/oauth2/authorized/code/{registrationId}"
+            scope: read
+            client-name: authorized-client
         provider:
           spring:
             issuer-uri: http://localhost:9000

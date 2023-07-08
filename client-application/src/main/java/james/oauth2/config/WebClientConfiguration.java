@@ -46,22 +46,4 @@ public class WebClientConfiguration {
 
     return authorizedClientManager;
   }
-
-
-  @Bean(name = "james")
-  public ClientRegistrationRepository clientRegistrationRepository() {
-    ClientRegistration registration = ClientRegistration.withRegistrationId("your-registration-id")
-        .clientId("client-application")
-        .clientSecret("{noop}secret")
-        .clientSecret("{noop}secret")
-        .clientAuthenticationMethod(ClientAuthenticationMethod.CLIENT_SECRET_BASIC)
-        .authorizationGrantType(AuthorizationGrantType.AUTHORIZATION_CODE)
-        .authorizationGrantType(AuthorizationGrantType.REFRESH_TOKEN)
-        .redirectUri("http://127.0.0.1:8089/login/oauth2/code/oidc-client")
-        .scope(OidcScopes.OPENID)
-        .authorizationUri("http://127.0.0.1:8089/author")
-        .build();
-
-    return new InMemoryClientRegistrationRepository(registration);
-  }
 }
