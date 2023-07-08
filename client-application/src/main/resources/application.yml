@@ -1,4 +1,15 @@
+server:
+  port: 8089
+
 spring:
+  r2dbc:
+    url: r2dbc:mysql://localhost:3306/oauth2
+    username: root
+    password: thaovtt1234
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
   security:
     oauth2:
       client:
@@ -6,3 +17,11 @@ spring:
           client-application:
             client-id: oidc-client
             client-secret: '{noop}secret'
+            provider: spring
+            authorization-grant-type: authorization_code
+            redirect-uri: "http://127.0.0.1:8089/login/oauth2/code/{registrationId}"
+            scope: openid
+            client-name: api-client-oidc
+        provider:
+          spring:
+            issuer-uri: http://localhost:9000
