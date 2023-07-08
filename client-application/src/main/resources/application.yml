@@ -1,5 +1,5 @@
 server:
-  port: 8089
+  port: 8080
 
 spring:
   r2dbc:
@@ -19,7 +19,7 @@ spring:
             client-secret: 'client-secret'
             provider: spring
             authorization-grant-type: authorization_code
-            redirect-uri: "http://127.0.0.1:8089/oauth2/login/code/{registrationId}"
+            redirect-uri: "http://127.0.0.1:8080/login"
             scope: openid
             client-name: login-client
           authorized-client:
@@ -27,7 +27,7 @@ spring:
             client-secret: 'client-secret'
             provider: spring
             authorization-grant-type: authorization_code
-            redirect-uri: "http://127.0.0.1:8089/oauth2/authorized/code/{registrationId}"
+            redirect-uri: "http://127.0.0.1:8080/login"
             scope: read
             client-name: authorized-client
         provider:
